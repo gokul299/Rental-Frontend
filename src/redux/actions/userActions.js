@@ -6,7 +6,7 @@ export const userLogin = (reqObj) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
-        const response = await axios.post('http://localhost:5000/users/login', reqObj)
+        const response = await axios.post('https://hyper-rental.herokuapp.com/users/login', reqObj)
         localStorage.setItem('user', JSON.stringify(response.data))
         message.success('Login success')
         dispatch({ type: 'LOADING', payload: false })
@@ -27,7 +27,7 @@ export const userRegister = (reqObj) => async dispatch => {
 
     try {
         // eslint-disable-next-line
-        const response = await axios.post('http://localhost:5000/users/register', reqObj)
+        const response = await axios.post('https://hyper-rental.herokuapp.com/users/register', reqObj)
         message.success('Registration successfull')
         setTimeout(() => {
             window.location.href = '/login'
